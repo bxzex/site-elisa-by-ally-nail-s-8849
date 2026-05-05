@@ -1,0 +1,2517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elisa by Ally Nail & SPA</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23C98A9E'/><text x='50' y='68' font-size='60' fill='white' text-anchor='middle' font-family='Arial,sans-serif' font-weight='bold'>E</text></svg>">
+    
+    <!-- OG Meta Tags -->
+    <meta property="og:title" content="Elisa by Ally Nail & SPA">
+    <meta property="og:description" content="Highly-rated nail salon in Miami offering luxury manicures, pedicures, waxing, and eyelash extensions. Experience stunning nail art and a serene environment.">
+    <meta property="og:image" content="./image-1.jpg">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* CSS Variables - Luxury Nail Salon Palette */
+        :root {
+            --primary: hsl(340, 40%, 65%); /* Soft Rose Gold / Blush */
+            --primary-light: hsl(340, 40%, 75%);
+            --primary-dark: hsl(340, 40%, 45%);
+            --secondary: hsl(340, 20%, 15%); /* Deep Plum / Charcoal */
+            --bg-main: hsl(35, 30%, 98%); /* Warm Cream */
+            --bg-alt: hsl(340, 30%, 95%); /* Pale Blush */
+            --accent: hsl(40, 60%, 70%); /* Soft Gold */
+            
+            --glass-bg: rgba(255, 255, 255, 0.6);
+            --glass-border: rgba(255, 255, 255, 0.4);
+            --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+            
+            --font-head: 'Playfair Display', serif;
+            --font-body: 'Jost', sans-serif;
+            
+            --radius: 24px;
+            --radius-lg: 32px;
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Global Reset & Typography */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-main);
+            color: var(--secondary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-head);
+            font-weight: 600;
+            line-height: 1.2;
+            color: var(--secondary);
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: rgba(34, 24, 28, 0.8); /* Secondary with opacity */
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Utility Classes */
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        .section-padding {
+            padding: clamp(4rem, 10vh, 8rem) 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .section-header {
+            margin-bottom: clamp(3rem, 6vh, 5rem);
+            text-align: center;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .eyebrow {
+            font-family: var(--font-body);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary);
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2.5rem;
+            border-radius: 999px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            box-shadow: 0 10px 20px rgba(201, 138, 158, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 25px rgba(201, 138, 158, 0.4);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--secondary);
+            border: 2px solid var(--secondary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--secondary);
+            color: white;
+            transform: translateY(-3px) scale(1.02);
+        }
+
+        /* Preloader */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--secondary);
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.5s ease;
+        }
+
+        .preloader-text {
+            font-family: var(--font-head);
+            color: var(--bg-main);
+            font-size: clamp(1.5rem, 5vw, 3.5rem);
+            padding: 0 2rem;
+            text-align: center;
+            word-break: break-word;
+            max-width: 90vw;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.95); }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: var(--transition);
+            background: transparent;
+        }
+
+        nav.scrolled {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            box-shadow: var(--glass-shadow);
+            padding: 1rem 5%;
+        }
+
+        .logo {
+            font-family: var(--font-head);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            font-size: 1.1rem;
+            white-space: nowrap;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.7rem;
+            padding: 4px 12px;
+            border-radius: 999px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            background: rgba(255,255,255,0.8);
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .status-badge.open {
+            color: #15803d;
+        }
+        .status-badge.open .dot {
+            background-color: #22c55e;
+            box-shadow: 0 0 8px #22c55e;
+            animation: pulse-dot 2s infinite;
+        }
+
+        .status-badge.closed {
+            color: #b91c1c;
+        }
+        .status-badge.closed .dot {
+            background-color: #ef4444;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        @keyframes pulse-dot {
+            0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+            70% { box-shadow: 0 0 0 6px rgba(34, 197, 94, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: var(--secondary);
+            cursor: pointer;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(34, 24, 28, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 2000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            transform: translateX(100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        .mobile-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 2rem;
+            font-family: var(--font-head);
+            display: block;
+            padding: 1rem 0;
+            transition: var(--transition);
+        }
+
+        .mobile-menu a:hover {
+            color: var(--primary);
+        }
+
+        .close-menu {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        /* Sticky Sidebar */
+        .sticky-sidebar {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            z-index: 900;
+        }
+
+        .sticky-sidebar a {
+            width: 45px;
+            height: 45px;
+            background: var(--secondary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: var(--transition);
+        }
+
+        .sticky-sidebar a:hover {
+            background: var(--primary);
+            transform: scale(1.1) translateX(-5px);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content {
+            z-index: 10;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 6vw, 5.5rem);
+            margin-bottom: 1.5rem;
+            opacity: 0;
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            margin-bottom: 2.5rem;
+            max-width: 90%;
+            opacity: 0;
+        }
+
+        .hero .eyebrow {
+            opacity: 0;
+        }
+
+        .hero .btn-group {
+            display: flex;
+            gap: 1rem;
+            opacity: 0;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            height: 75vh;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            transform: translateY(0px);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes heroReveal {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Marquee */
+        .marquee-container {
+            background-color: var(--secondary);
+            color: var(--bg-main);
+            padding: 1.5rem 0;
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            display: flex;
+        }
+
+        .marquee-content {
+            display: flex;
+            animation: marquee 25s linear infinite;
+        }
+
+        .marquee-content span {
+            font-family: var(--font-head);
+            font-size: 1.5rem;
+            margin: 0 2rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .marquee-content span::after {
+            content: '✦';
+            color: var(--primary);
+            font-size: 1rem;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Scroll Reveal Class */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* About Section */
+        .about-section {
+            background-color: var(--bg-alt);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-content h2 {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background-color: var(--secondary);
+            color: white;
+            padding: 4rem 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .stat-number {
+            font-family: var(--font-head);
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.7);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Why Choose Us */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+        }
+
+        .feature-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            padding: 3rem 2rem;
+            border-radius: var(--radius);
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: var(--glass-shadow);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            border-color: var(--primary-light);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--bg-alt);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .feature-card:hover .feature-icon {
+            background: var(--primary);
+            color: white;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Services */
+        .services-section {
+            background-color: var(--bg-alt);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--glass-shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .service-img {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .service-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s ease;
+        }
+
+        .service-card:hover .service-img img {
+            transform: scale(1.1);
+        }
+
+        .service-content {
+            padding: 2rem;
+        }
+
+        .service-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .service-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .service-link {
+            color: var(--primary);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .service-link:hover {
+            gap: 1rem;
+        }
+
+        /* Pricing Menu */
+        .menu-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            padding: 4rem;
+            box-shadow: var(--glass-shadow);
+        }
+
+        .menu-category {
+            margin-bottom: 3rem;
+        }
+
+        .menu-category:last-child {
+            margin-bottom: 0;
+        }
+
+        .menu-category h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            padding-bottom: 0.5rem;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 1rem;
+        }
+
+        .menu-name {
+            font-family: var(--font-head);
+            font-size: 1.3rem;
+            font-weight: 600;
+            background: var(--bg-main);
+            padding-right: 10px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .menu-leader {
+            flex-grow: 1;
+            border-bottom: 2px dotted rgba(0,0,0,0.2);
+            margin: 0 10px;
+            position: relative;
+            top: -6px;
+        }
+
+        .menu-price {
+            font-family: var(--font-body);
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary-dark);
+            background: var(--bg-main);
+            padding-left: 10px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Newsletter */
+        .newsletter-section {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            text-align: center;
+            padding: 6rem 5%;
+            border-radius: var(--radius-lg);
+            margin: 4rem 5%;
+            box-shadow: 0 20px 40px rgba(201, 138, 158, 0.3);
+        }
+
+        .newsletter-section h2 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 2rem auto 0;
+            background: rgba(255,255,255,0.1);
+            padding: 0.5rem;
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .newsletter-form input {
+            flex-grow: 1;
+            background: transparent;
+            border: none;
+            padding: 1rem 1.5rem;
+            color: white;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .newsletter-form input::placeholder {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .newsletter-form button {
+            background: white;
+            color: var(--primary-dark);
+            border: none;
+            padding: 0 2rem;
+            border-radius: 999px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .newsletter-form button:hover {
+            background: var(--bg-main);
+            transform: scale(1.05);
+        }
+
+        /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+        }
+
+        .team-card {
+            text-align: center;
+        }
+
+        .team-img {
+            width: 100%;
+            aspect-ratio: 3/4;
+            border-radius: var(--radius);
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .team-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .team-card:hover .team-img img {
+            transform: scale(1.05);
+        }
+
+        .team-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .team-role {
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* Instagram Feed */
+        .ig-section {
+            background-color: var(--bg-alt);
+        }
+
+        .ig-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+
+        .ig-item {
+            position: relative;
+            aspect-ratio: 1/1;
+            border-radius: 16px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .ig-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .ig-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(34, 24, 28, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: var(--transition);
+            color: white;
+            font-size: 1.5rem;
+            gap: 0.5rem;
+        }
+
+        .ig-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .ig-item:hover .ig-overlay {
+            opacity: 1;
+        }
+
+        /* Luxury Photo Gallery (Bento Box) */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 300px;
+            gap: 1rem;
+        }
+
+        .gallery-item {
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.6s ease;
+            filter: grayscale(20%);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+            filter: grayscale(0%);
+        }
+
+        /* Asymmetric Grid Placements to fill 12 cells with 8 images */
+        .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 2; } /* Img 13 */
+        .gallery-item:nth-child(2) { grid-column: span 1; grid-row: span 1; } /* Img 14 */
+        .gallery-item:nth-child(3) { grid-column: span 1; grid-row: span 1; } /* Img 15 */
+        .gallery-item:nth-child(4) { grid-column: span 1; grid-row: span 1; } /* Img 16 */
+        .gallery-item:nth-child(5) { grid-column: span 1; grid-row: span 1; } /* Img 17 */
+        .gallery-item:nth-child(6) { grid-column: span 2; grid-row: span 1; } /* Img 18 */
+        .gallery-item:nth-child(7) { grid-column: span 1; grid-row: span 1; } /* Img 19 */
+        .gallery-item:nth-child(8) { grid-column: span 1; grid-row: span 1; } /* Img 20 */
+
+        /* Before & After Spotlight */
+        .spotlight-section {
+            background-color: var(--secondary);
+            color: white;
+        }
+
+        .spotlight-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .spotlight-content h2 {
+            color: white;
+        }
+
+        .spotlight-content p {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .ba-container {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .ba-img {
+            flex: 1;
+            border-radius: var(--radius);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .ba-img::after {
+            content: attr(data-label);
+            position: absolute;
+            bottom: 1rem;
+            left: 1rem;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 999px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .ba-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            aspect-ratio: 3/4;
+        }
+
+        /* Reviews */
+        .reviews-section {
+            background-color: var(--bg-alt);
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .review-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: var(--radius);
+            box-shadow: var(--glass-shadow);
+            position: relative;
+        }
+
+        .review-card::before {
+            content: '\201C';
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-family: var(--font-head);
+            font-size: 5rem;
+            color: var(--bg-alt);
+            line-height: 1;
+        }
+
+        .stars {
+            color: gold;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .review-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .reviewer-name {
+            font-weight: 700;
+            color: var(--secondary);
+            font-family: var(--font-head);
+            font-size: 1.2rem;
+        }
+
+        /* FAQ */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 16px;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--secondary);
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            color: var(--primary);
+        }
+
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+            color: var(--primary);
+        }
+
+        .faq-answer {
+            padding: 0 2rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            color: rgba(34, 24, 28, 0.8);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 2rem 1.5rem;
+            max-height: 300px;
+        }
+
+        /* Map & Hours */
+        .location-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+        }
+
+        .hours-card {
+            background: var(--secondary);
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: var(--radius);
+        }
+
+        .hours-card h3 {
+            color: white;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+
+        .hours-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .hours-list li:last-child {
+            border-bottom: none;
+        }
+
+        .map-container {
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--glass-shadow);
+            height: 100%;
+            min-height: 400px;
+        }
+
+        /* Final CTA Banner */
+        .final-cta {
+            position: relative;
+            padding: 8rem 5%;
+            text-align: center;
+            background-image: url('./image-2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--radius-lg);
+            margin: 0 2% 4rem;
+            overflow: hidden;
+        }
+
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(34, 24, 28, 0.75);
+        }
+
+        .final-cta-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            max-width: 800px;
+        }
+
+        .final-cta h2 {
+            color: white;
+            font-size: clamp(3rem, 6vw, 5rem);
+            margin-bottom: 1.5rem;
+        }
+
+        .final-cta p {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary);
+            color: white;
+            padding: 5rem 5% 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1.5fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-col h4 {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-family: var(--font-head);
+        }
+
+        .footer-logo {
+            font-family: var(--font-head);
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .footer-col p {
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 1rem;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .contact-info li {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .contact-info i {
+            color: var(--primary);
+            margin-top: 5px;
+        }
+
+        .qr-code {
+            width: 120px;
+            height: 120px;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            background: white;
+            padding: 5px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icons a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.5);
+            font-size: 0.9rem;
+        }
+
+        /* Floating Chat Widget */
+        .chat-widget {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 9990;
+        }
+
+        .chat-fab {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(201, 138, 158, 0.4);
+            transition: var(--transition);
+            border: none;
+            animation: pulse-fab 2s infinite;
+        }
+
+        @keyframes pulse-fab {
+            0% { box-shadow: 0 0 0 0 rgba(201, 138, 158, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(201, 138, 158, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(201, 138, 158, 0); }
+        }
+
+        .chat-fab:hover {
+            transform: scale(1.1);
+        }
+
+        .chat-panel {
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 350px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            border: 1px solid rgba(255,255,255,0.5);
+            overflow: hidden;
+            transform: scale(0.8) translateY(20px);
+            opacity: 0;
+            pointer-events: none;
+            transition: transform 0.3s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-panel.open {
+            transform: scale(1) translateY(0);
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .chat-header {
+            background: var(--primary);
+            color: white;
+            padding: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .chat-profile {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .chat-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid white;
+        }
+
+        .chat-info h5 {
+            color: white;
+            margin: 0;
+            font-family: var(--font-body);
+            font-size: 1rem;
+        }
+
+        .chat-status {
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            opacity: 0.9;
+        }
+
+        .chat-status .dot {
+            width: 8px;
+            height: 8px;
+            background: #22c55e;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .chat-body {
+            padding: 1.5rem;
+            height: 300px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            background: var(--bg-main);
+        }
+
+        .chat-bubble {
+            max-width: 85%;
+            padding: 10px 15px;
+            border-radius: 18px;
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+
+        .chat-incoming {
+            background: white;
+            color: var(--secondary);
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .chat-outgoing {
+            background: var(--primary);
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+            box-shadow: 0 2px 10px rgba(201, 138, 158, 0.2);
+        }
+
+        .chat-time {
+            font-size: 0.7rem;
+            color: #888;
+            margin-top: 5px;
+            text-align: right;
+        }
+
+        .chat-incoming .chat-time {
+            text-align: left;
+        }
+
+        .quick-replies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .quick-reply-btn {
+            background: white;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .quick-reply-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .chat-input-area {
+            padding: 1rem;
+            background: white;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            display: flex;
+            gap: 10px;
+        }
+
+        .chat-input-area input {
+            flex-grow: 1;
+            border: none;
+            background: var(--bg-main);
+            padding: 10px 15px;
+            border-radius: 999px;
+            outline: none;
+        }
+
+        .chat-input-area button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .chat-input-area button:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Promo Popup */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(5px);
+            z-index: 9999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .promo-popup {
+            background: white;
+            width: 90%;
+            max-width: 500px;
+            border-radius: var(--radius-lg);
+            padding: 3rem;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+            animation: popIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes popIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--secondary);
+            cursor: pointer;
+        }
+
+        .promo-popup h2 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .promo-popup p {
+            margin-bottom: 2rem;
+        }
+
+        .promo-popup input {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            outline: none;
+        }
+
+        .promo-popup .btn {
+            width: 100%;
+        }
+
+        /* Sticky Mobile CTA */
+        .mobile-cta-bar {
+            display: none;
+        }
+
+        /* MANDATORY MOBILE OVERRIDES */
+        *, *::before, *::after { box-sizing: border-box; }
+        html, body { overflow-x: hidden !important; width: 100%; margin: 0; padding: 0; }
+        img, video, iframe { max-width: 100%; height: auto; }
+        a { color: inherit; text-decoration: none; }
+        
+        /* DESKTOP NAV DEFAULTS */
+        nav, header { position: fixed !important; top: 0 !important; left: 0 !important; width: 100% !important; z-index: 9999 !important; display: flex !important; justify-content: space-between !important; align-items: center !important; padding: 1rem 5% !important; background: rgba(255,255,255,0.9) !important; backdrop-filter: blur(20px) !important; box-sizing: border-box !important; }
+        body { padding-top: 80px !important; }
+        .hamburger, .menu-toggle, .mobile-menu-btn { display: none !important; }
+        .sidebar, .side-bar, .sticky-sidebar { display: flex; }
+        section, .section { padding: clamp(4rem, 8vh, 8rem) 5% !important; width: 100% !important; box-sizing: border-box !important; overflow: hidden; }
+        h1, h2, h3 { overflow-wrap: break-word; word-break: break-word; max-width: 100%; }
+
+        /* MOBILE OVERRIDES */
+        @media (max-width: 768px) {
+            nav, header { padding: 15px !important; background: rgba(255,255,255,0.98) !important; border-bottom: 1px solid rgba(0,0,0,0.05); }
+            nav .logo, nav .brand, header .logo { font-size: 1.3rem !important; max-width: 50vw; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin-right: auto; }
+            nav .nav-links, nav .desktop-nav, nav ul { display: none !important; }
+            .hamburger, .menu-toggle, .mobile-menu-btn { display: flex !important; align-items: center; justify-content: center; font-size: 24px; color: var(--secondary); background: none; border: none; cursor: pointer; z-index: 101; margin-left: 15px; }
+            
+            .hero { min-height: auto !important; padding-top: 100px !important; justify-content: flex-start !important; gap: 2rem !important; }
+            .hero h1, .hero-title { font-size: clamp(2.5rem, 8vw, 3.5rem) !important; margin-bottom: 1rem !important; }
+            .hero p, .hero-subtitle { font-size: 1rem !important; margin-bottom: 1.5rem !important; }
+            .hero-image-wrapper { height: 50vh; margin-top: 2rem; }
+            
+            [class*="grid"], [class*="row"], .about-grid, .services-grid, .team-grid, .gallery-grid, .bento-grid, .footer-grid, .footer-columns, .hero-grid, .location-grid, .spotlight-grid { grid-template-columns: 1fr !important; display: flex !important; flex-direction: column !important; }
+            [class*="grid"] > *, .bento-grid > *, .gallery-grid > * { grid-column: span 1 !important; grid-row: span 1 !important; width: 100% !important; }
+            
+            footer { padding: 3rem 5% 6rem !important; }
+            .hero-buttons, .hero-cta, .hero .btn-group, .hero-actions { display: flex !important; flex-direction: column !important; align-items: center; width: 100%; padding: 0; }
+            .hero-buttons a, .hero-buttons button, .hero .btn-group a { width: 100% !important; max-width: 100%; text-align: center; box-sizing: border-box; margin: 0 0 15px 0 !important; }
+            
+            [class*="chat-widget"], [class*="floating-chat"], #chat-widget { bottom: 90px !important; right: 15px !important; }
+            .sidebar, .side-bar, .sticky-sidebar { display: none !important; }
+            .cursor-dot, .cursor-outline { display: none !important; }
+
+            .menu-container { padding: 2rem 1rem; }
+            .final-cta { margin: 0 0 4rem; border-radius: 0; padding: 4rem 5%; }
+            
+            /* Sticky Mobile CTA */
+            .mobile-cta-bar {
+                display: block;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                background: var(--primary);
+                padding: 15px;
+                z-index: 9998;
+                box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+            }
+            .mobile-cta-bar a {
+                display: block;
+                width: 100%;
+                text-align: center;
+                color: white;
+                font-family: var(--font-head);
+                font-size: 1.2rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="preloader-text">Elisa by Ally</div>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu">
+        <button class="close-menu"><i class="fas fa-times"></i></button>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#" class="logo">
+            Elisa by Ally
+        </a>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#menu">Menu</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#reviews">Reviews</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div style="display: flex; align-items: center; gap: 1rem;">
+            <span class="status-badge" id="status-badge">
+                <span class="dot"></span> <span class="text">Checking...</span>
+            </span>
+            <button class="hamburger"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <!-- Sticky Sidebar -->
+    <div class="sticky-sidebar">
+        <a href="tel:3052554454" title="Call Us"><i class="fas fa-phone"></i></a>
+        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero section">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <span class="eyebrow">Miami's Premier Nail Spa</span>
+                <h1>Elevate Your Elegance.</h1>
+                <p>Experience luxury nail care, intricate artistry, and a serene atmosphere in the heart of Miami. Where traditional techniques meet modern trends.</p>
+                <div class="btn-group">
+                    <a href="https://www.fresha.com/a/elisa-by-ally-nail-spa-miami-12368-quail-roost-dr-n6rpl7d1/booking?menu=true" class="btn btn-primary">
+                        Book Appointment <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="tel:3052554454" class="btn btn-outline">
+                        <i class="fas fa-phone"></i> (305) 255-4454
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image-wrapper">
+                <img src="./image-1.jpg" alt="Elisa by Ally Nail Salon Interior">
+            </div>
+        </div>
+    </section>
+
+    <!-- Marquee -->
+    <div class="marquee-container">
+        <div class="marquee-content">
+            <span>LUXURY MANICURES</span>
+            <span>SPA PEDICURES</span>
+            <span>CUSTOM NAIL ART</span>
+            <span>EXPERT WAXING</span>
+            <span>EYELASH EXTENSIONS</span>
+            <span>NAIL HEALTH FOCUS</span>
+            <span>LUXURY MANICURES</span>
+            <span>SPA PEDICURES</span>
+            <span>CUSTOM NAIL ART</span>
+            <span>EXPERT WAXING</span>
+            <span>EYELASH EXTENSIONS</span>
+            <span>NAIL HEALTH FOCUS</span>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="about-section section">
+        <div class="container about-grid">
+            <div class="about-image reveal">
+                <img src="./image-2.jpg" alt="Nail Technician at work">
+            </div>
+            <div class="about-content reveal" style="transition-delay: 0.2s;">
+                <span class="eyebrow">Our Philosophy</span>
+                <h2>Setting the Bar High in Miami</h2>
+                <p>Elisa by Ally Nail & SPA is more than just a salon; it's a sanctuary for self-care and artistic expression. With a stellar 4.5-star rating from over 300 satisfied clients, we pride ourselves on delivering stunning results without compromising on nail health.</p>
+                <p>Our talented technicians combine traditional techniques with innovative modern trends. Whether you desire a classic, timeless look or intricate, show-stopping nail art, our team brings your vision to life in a beautifully serene environment.</p>
+                <a href="#team" class="btn btn-outline" style="margin-top: 1rem;">Meet Our Experts</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section section">
+        <div class="container stats-grid">
+            <div class="stat-item reveal">
+                <i class="fas fa-star"></i>
+                <div class="stat-number"><span class="count" data-target="305">0</span>+</div>
+                <div class="stat-label">5-Star Reviews</div>
+            </div>
+            <div class="stat-item reveal" style="transition-delay: 0.1s;">
+                <i class="fas fa-award"></i>
+                <div class="stat-number"><span class="count" data-target="5">0</span></div>
+                <div class="stat-label">Years of Excellence</div>
+            </div>
+            <div class="stat-item reveal" style="transition-delay: 0.2s;">
+                <i class="fas fa-heart"></i>
+                <div class="stat-number"><span class="count" data-target="1500">0</span>+</div>
+                <div class="stat-label">Happy Clients</div>
+            </div>
+            <div class="stat-item reveal" style="transition-delay: 0.3s;">
+                <i class="fas fa-gem"></i>
+                <div class="stat-number"><span class="count" data-target="4">0</span></div>
+                <div class="stat-label">Industry Awards</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="eyebrow">The Elisa Difference</span>
+                <h2>Why Choose Us</h2>
+                <p>We believe in providing an unparalleled experience that goes beyond a simple polish change.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i class="fas fa-paint-brush"></i></div>
+                    <h3>Master Artistry</h3>
+                    <p>Our technicians, like our renowned artist Galy, specialize in intricate, custom nail art that turns your hands into a canvas.</p>
+                </div>
+                <div class="feature-card reveal" style="transition-delay: 0.1s;">
+                    <div class="feature-icon"><i class="fas fa-leaf"></i></div>
+                    <h3>Nail Health First</h3>
+                    <p>We use premium, non-toxic products and innovative techniques that ensure your natural nails stay strong and healthy.</p>
+                </div>
+                <div class="feature-card reveal" style="transition-delay: 0.2s;">
+                    <div class="feature-icon"><i class="fas fa-spa"></i></div>
+                    <h3>Serene Ambiance</h3>
+                    <p>Escape the Miami hustle. Our salon is designed to be a relaxing retreat where you can unwind and be pampered.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="services-section section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="eyebrow">Our Offerings</span>
+                <h2>Signature Services</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card reveal">
+                    <div class="service-img">
+                        <img src="./image-3.jpg" alt="Luxury Manicure">
+                    </div>
+                    <div class="service-content">
+                        <h3>Luxury Manicures</h3>
+                        <p>From classic polish to durable gel and acrylic extensions, tailored perfectly to your style.</p>
+                        <a href="https://www.fresha.com/a/elisa-by-ally-nail-spa-miami-12368-quail-roost-dr-n6rpl7d1/booking?menu=true" class="service-link">Book Service <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="service-card reveal" style="transition-delay: 0.1s;">
+                    <div class="service-img">
+                        <img src="./image-4.jpg" alt="Spa Pedicure">
+                    </div>
+                    <div class="service-content">
+                        <h3>Spa Pedicures</h3>
+                        <p>Rejuvenate tired feet with our exfoliating scrubs, hydrating masks, and flawless polish application.</p>
+                        <a href="https://www.fresha.com/a/elisa-by-ally-nail-spa-miami-12368-quail-roost-dr-n6rpl7d1/booking?menu=true" class="service-link">Book Service <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="service-card reveal" style="transition-delay: 0.2s;">
+                    <div class="service-img">
+                        <img src="./image-5.jpg" alt="Custom Nail Art">
+                    </div>
+                    <div class="service-content">
+                        <h3>Custom Nail Art</h3>
+                        <p>Bring us your inspiration. Our artists excel in 3D designs, ombre, chrome, and intricate hand-painted art.</p>
+                        <a href="https://www.fresha.com/a/elisa-by-ally-nail-spa-miami-12368-quail-roost-dr-n6rpl7d1/booking?menu=true" class="service-link">Book Service <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Menu -->
+    <section id="menu" class="section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="eyebrow">Transparent Pricing</span>
+                <h2>Service Menu</h2>
+            </div>
+            <div class="menu-container reveal">
+                <div class="menu-category">
+                    <h3>Hands</h3>
+                    <div class="menu-item">
+                        <span class="menu-name">Classic Manicure</span>
+                        <div class="menu-leader"></div>
+                        <span class="menu-price">$35</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-name">Gel Manicure</span>
+                        <div class="menu-leader"></div>
+                        <span class="menu-price">$50</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-name">Acrylic Full Set</span>
+                        <div class="menu-leader"></div>
+                        <span class="menu-price">$75+</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-name">Dip Powder (SNS)</span>
+                        <div class="menu-leader"></div>
+                        <span class="menu-price">$60</span>
+                    </div>
+                </div>
+                
+                <div class="menu-category">
+                    <h3>Feet</h3>
+                    <div class="menu-item">
+                        <span class="menu-name">Classic Pedicure</span>
+                        <div class="menu-leader"></div>
+                        <span class="menu-price">$45</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-name">Signature Spa Pedicure</span>
+                        <div class="menu-leader"></div>
+                        <span class="menu-price">$65</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-name">Gel Pedicure</span>
+                        <div class="menu-leader"></div>
+                        <span class="menu-price">$60</span>
+                    </div>
+                </div>
+
+                <div class="menu-category">
+                    <h3>Enhancements</h3>
+                    <div class="menu-item">
+                        <span class="menu-name">Custom Nail Art (Per Finger)</span>
+                        <div class="menu-leader"></div>
+                        <span class="menu-price">$5+</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-name">French Tip Design</span>
+                        <div class="menu-leader"></div>
+                        <span class="menu-price">$15</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-name">Eyelash Extensions (Classic)</span>
+                        <div class="menu-leader"></div>
+                        <span class="menu-price">$120</span>
+                    </div>
+                </div>
+                
+                <div class="text-center" style="margin-top: 3rem;">
+                    <a href="https://www.fresha.com/a/elisa-by-ally-nail-spa-miami-12368-quail-roost-dr-n6rpl7d1/booking?menu=true" class="btn btn-primary">View Full Menu & Book</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter-section reveal">
+        <h2>Join the VIP List</h2>
+        <p>Subscribe for exclusive offers, seasonal nail trends, and priority booking.</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
+            <input type="email" placeholder="Enter your email address" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="eyebrow">The Artists</span>
+                <h2>Meet Our Experts</h2>
+                <p>Our highly trained technicians are passionate about delivering perfection.</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card reveal">
+                    <div class="team-img">
+                        <img src="./image-6.jpg" alt="Ally - Founder">
+                    </div>
+                    <h3>Ally</h3>
+                    <span class="team-role">Founder & Lead Specialist</span>
+                    <a href="tel:3052554454" class="btn btn-outline" style="padding: 0.5rem 1.5rem; font-size: 0.9rem;">Book Ally</a>
+                </div>
+                <div class="team-card reveal" style="transition-delay: 0.1s;">
+                    <div class="team-img">
+                        <img src="./image-7.jpg" alt="Galy - Master Nail Artist">
+                    </div>
+                    <h3>Galy</h3>
+                    <span class="team-role">Master Nail Artist</span>
+                    <a href="tel:3052554454" class="btn btn-outline" style="padding: 0.5rem 1.5rem; font-size: 0.9rem;">Book Galy</a>
+                </div>
+                <div class="team-card reveal" style="transition-delay: 0.2s;">
+                    <div class="team-img">
+                        <img src="./image-8.jpg" alt="Alina - Lash & Brow Tech">
+                    </div>
+                    <h3>Alina</h3>
+                    <span class="team-role">Lash & Brow Technician</span>
+                    <a href="tel:3052554454" class="btn btn-outline" style="padding: 0.5rem 1.5rem; font-size: 0.9rem;">Book Alina</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram Feed -->
+    <section class="ig-section section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="eyebrow">On The Gram</span>
+                <h2>Follow Our Journey</h2>
+            </div>
+            <div class="ig-grid">
+                <div class="ig-item reveal">
+                    <img src="./image-9.jpg" alt="Instagram Post 1">
+                    <div class="ig-overlay">
+                        <i class="fas fa-heart"></i> 245
+                    </div>
+                </div>
+                <div class="ig-item reveal" style="transition-delay: 0.1s;">
+                    <img src="./image-10.jpg" alt="Instagram Post 2">
+                    <div class="ig-overlay">
+                        <i class="fas fa-heart"></i> 189
+                    </div>
+                </div>
+                <div class="ig-item reveal" style="transition-delay: 0.2s;">
+                    <img src="./image-11.jpg" alt="Instagram Post 3">
+                    <div class="ig-overlay">
+                        <i class="fas fa-heart"></i> 312
+                    </div>
+                </div>
+                <div class="ig-item reveal" style="transition-delay: 0.3s;">
+                    <img src="./image-12.jpg" alt="Instagram Post 4">
+                    <div class="ig-overlay">
+                        <i class="fas fa-heart"></i> 420
+                    </div>
+                </div>
+            </div>
+            <div class="text-center" style="margin-top: 3rem;">
+                <a href="#" class="btn btn-outline"><i class="fab fa-instagram"></i> @ElisaByAlly</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Luxury Photo Gallery (Bento Box) -->
+    <section id="gallery" class="section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="eyebrow">Portfolio</span>
+                <h2>Our Masterpieces</h2>
+                <p>A glimpse into the stunning transformations created daily at our salon.</p>
+            </div>
+            <div class="gallery-grid">
+                <!-- 8 Images perfectly filling a 12-cell grid -->
+                <div class="gallery-item reveal"><img src="./image-13.jpg" alt="Gallery Image 1"></div>
+                <div class="gallery-item reveal" style="transition-delay: 0.1s;"><img src="./image-14.jpg" alt="Gallery Image 2"></div>
+                <div class="gallery-item reveal" style="transition-delay: 0.2s;"><img src="./image-15.jpg" alt="Gallery Image 3"></div>
+                <div class="gallery-item reveal" style="transition-delay: 0.3s;"><img src="./image-16.jpg" alt="Gallery Image 4"></div>
+                <div class="gallery-item reveal" style="transition-delay: 0.4s;"><img src="./image-17.jpg" alt="Gallery Image 5"></div>
+                <div class="gallery-item reveal" style="transition-delay: 0.5s;"><img src="./image-18.jpg" alt="Gallery Image 6"></div>
+                <div class="gallery-item reveal" style="transition-delay: 0.6s;"><img src="./image-19.jpg" alt="Gallery Image 7"></div>
+                <div class="gallery-item reveal" style="transition-delay: 0.7s;"><img src="./image-20.jpg" alt="Gallery Image 8"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Before & After Spotlight -->
+    <section class="spotlight-section section">
+        <div class="container spotlight-grid">
+            <div class="spotlight-content reveal">
+                <span class="eyebrow" style="color: var(--primary-light);">The Transformation</span>
+                <h2>From Basic to Breathtaking</h2>
+                <p>Witness the power of professional nail care. We specialize in restoring damaged nails and elevating them with flawless extensions and art.</p>
+                <a href="https://www.fresha.com/a/elisa-by-ally-nail-spa-miami-12368-quail-roost-dr-n6rpl7d1/booking?menu=true" class="btn btn-primary" style="margin-top: 1rem;">Start Your Transformation</a>
+            </div>
+            <div class="ba-container reveal" style="transition-delay: 0.2s;">
+                <div class="ba-img" data-label="Before">
+                    <img src="./image-4.jpg" alt="Before Nail Treatment">
+                </div>
+                <div class="ba-img" data-label="After">
+                    <img src="./image-5.jpg" alt="After Nail Treatment">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews -->
+    <section id="reviews" class="reviews-section section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="eyebrow">Testimonials</span>
+                <h2>What Our Clients Say</h2>
+                <p>Rated 4.5 Stars based on over 305 reviews.</p>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card reveal">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"Just got my nails done at Elisa by Ally Nails & Spa in Miami! ✨ My nail tech, Galy, is incredibly talented and brought my nail design ideas to life. If you're searching for a top-notch nail salon in Miami with stunning art and a great vibe, you have to check them out!"</p>
+                    <span class="reviewer-name">- Happy Client</span>
+                </div>
+                <div class="review-card reveal" style="transition-delay: 0.1s;">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"Elisa by Ally has truly set the bar high for nail salons in Miami! Their innovative approach to nail design keeps me coming back for more. Quality products and talented technicians like Galy ensure that my nails look stunning and stay healthy."</p>
+                    <span class="reviewer-name">- NailGoddessLucy</span>
+                </div>
+                <div class="review-card reveal" style="transition-delay: 0.2s;">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"Elisa by Ally has quickly become my go-to nail salon in Miami! I love how they combine traditional techniques with modern trends. Their creativity is unmatched, especially with their intricate nail art designs that I always get compliments on."</p>
+                    <span class="reviewer-name">- ArtisticAlina</span>
+                </div>
+                <div class="review-card reveal" style="transition-delay: 0.3s;">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"If you're searching for nail design ideas, look no further than Elisa by Ally! The Miami nail salon scene has so much to offer, and this place stands out with its unique designs and wonderful ambiance."</p>
+                    <span class="reviewer-name">- TrendyTina</span>
+                </div>
+            </div>
+            <div class="text-center reveal">
+                <a href="https://www.google.com/maps/search/Elisa%20by%20Ally%20Nail%20%26%20SPA%2012368%20Quail%20Roost%20Dr%2C%20Miami%2C%20FL%2033177%2C%20USA" target="_blank" class="btn btn-primary" style="padding: 1.2rem 3rem; font-size: 1.2rem;">
+                    <i class="fab fa-google"></i> Leave a Review on Google
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="eyebrow">Got Questions?</span>
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-container reveal">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Do I need to make an appointment?
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>While we do accept walk-ins based on availability, we highly recommend booking an appointment in advance to secure your preferred time and technician, especially for intricate nail art.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What products do you use?
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We use only premium, industry-leading brands that prioritize nail health. Our polishes and gels are carefully selected to be long-lasting while minimizing damage to your natural nail bed.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How long does custom nail art take?
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>The time varies depending on the complexity of the design. Simple art may add 15 minutes to your service, while intricate 3D designs or hand-painted characters can take an additional hour. Please mention your art request when booking.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What is your cancellation policy?
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We kindly ask for at least 24 hours notice if you need to cancel or reschedule your appointment. This allows us to offer the time slot to other clients.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map & Hours -->
+    <section id="contact" class="section">
+        <div class="container location-grid">
+            <div class="hours-card reveal">
+                <h3>Opening Hours</h3>
+                <ul class="hours-list">
+                    <li><span>Monday</span> <span>8:30 AM – 7:00 PM</span></li>
+                    <li><span>Tuesday</span> <span>8:30 AM – 7:00 PM</span></li>
+                    <li><span>Wednesday</span> <span>8:30 AM – 7:00 PM</span></li>
+                    <li><span>Thursday</span> <span>8:30 AM – 7:00 PM</span></li>
+                    <li><span>Friday</span> <span>8:30 AM – 7:00 PM</span></li>
+                    <li><span>Saturday</span> <span>8:30 AM – 7:00 PM</span></li>
+                    <li><span>Sunday</span> <span>10:00 AM – 3:00 PM</span></li>
+                </ul>
+                <div style="margin-top: 2rem;">
+                    <p style="color: rgba(255,255,255,0.7); margin-bottom: 0.5rem;"><i class="fas fa-map-marker-alt" style="color: var(--primary);"></i> 12368 Quail Roost Dr, Miami, FL 33177</p>
+                    <p style="color: rgba(255,255,255,0.7);"><i class="fas fa-phone" style="color: var(--primary);"></i> (305) 255-4454</p>
+                </div>
+            </div>
+            <div class="map-container reveal" style="transition-delay: 0.2s;">
+                <iframe src="https://maps.google.com/maps?q=12368%20Quail%20Roost%20Dr%2C%20Miami%2C%20FL%2033177%2C%20USA&t=&z=15&ie=UTF8&iwloc=&output=embed" style="border:0;width:100%;height:100%;filter:invert(90%) hue-rotate(180deg);" allowfullscreen loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Banner -->
+    <section class="final-cta reveal">
+        <div class="final-cta-content">
+            <h2>Ready for Flawless Nails?</h2>
+            <p>Join hundreds of satisfied clients in Miami. Secure your spot today and let our experts pamper you.</p>
+            <a href="https://www.fresha.com/a/elisa-by-ally-nail-spa-miami-12368-quail-roost-dr-n6rpl7d1/booking?menu=true" class="btn btn-primary" style="font-size: 1.2rem; padding: 1.2rem 3rem;">
+                Book Your Appointment Now
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <span class="footer-logo">Elisa by Ally</span>
+                    <p>Miami's premier destination for luxury nail care, intricate artistry, and ultimate relaxation. Elevating elegance one nail at a time.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> 12368 Quail Roost Dr,<br>Miami, FL 33177</li>
+                        <li><i class="fas fa-phone"></i> <a href="tel:3052554454">(305) 255-4454</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:hello@elisabyally.com">hello@elisabyally.com</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect Instantly</h4>
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.fresha.com/a/elisa-by-ally-nail-spa-miami-12368-quail-roost-dr-n6rpl7d1/booking?menu=true" alt="Scan to Connect" class="qr-code">
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2024 Elisa by Ally Nail & SPA. All rights reserved. Built by SiteFlow
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Chat Widget -->
+    <div class="chat-widget" id="chat-widget">
+        <button class="chat-fab" id="chat-fab">
+            <i class="fas fa-comment-dots"></i>
+        </button>
+        <div class="chat-panel" id="chat-panel">
+            <div class="chat-header">
+                <div class="chat-profile">
+                    <img src="./image-1.jpg" alt="Support" class="chat-avatar">
+                    <div class="chat-info">
+                        <h5>Elisa Concierge</h5>
+                        <div class="chat-status"><span class="dot"></span> Online</div>
+                    </div>
+                </div>
+                <button class="chat-close" id="chat-close" style="background:none;border:none;color:white;font-size:20px;cursor:pointer;">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="chat-body" id="chat-body">
+                <div class="chat-bubble chat-incoming">
+                    Hi there! ✨ How can we help you at Elisa by Ally today?
+                    <div class="chat-time">Just now</div>
+                </div>
+                <div class="quick-replies">
+                    <button class="quick-reply-btn" data-reply="Hours?">Hours?</button>
+                    <button class="quick-reply-btn" data-reply="Location?">Location?</button>
+                    <button class="quick-reply-btn" data-reply="Services?">Services?</button>
+                    <button class="quick-reply-btn" data-reply="WhatsApp Us">WhatsApp Us</button>
+                    <button class="quick-reply-btn" data-reply="Leave a Review">Leave a Review</button>
+                </div>
+            </div>
+            <div class="chat-input-area">
+                <input type="text" placeholder="Type a message..." id="chat-input">
+                <button id="chat-send"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Promo Popup -->
+    <div class="modal-overlay" id="promo-modal">
+        <div class="promo-popup">
+            <button class="close-modal"><i class="fas fa-times"></i></button>
+            <h2>VIP Welcome Offer</h2>
+            <p>Get 15% off your first luxury manicure or pedicure when you join our list.</p>
+            <form onsubmit="event.preventDefault(); document.getElementById('promo-modal').style.display='none'; alert('Offer claimed! Check your email.');">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit" class="btn btn-primary">Claim 15% Off</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Sticky Mobile CTA -->
+    <div class="mobile-cta-bar">
+        <a href="https://www.fresha.com/a/elisa-by-ally-nail-spa-miami-12368-quail-roost-dr-n6rpl7d1/booking?menu=true">BOOK NOW</a>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        try {
+            // Preloader
+            window.addEventListener('load', () => {
+                const preloader = document.getElementById('preloader');
+                setTimeout(() => {
+                    preloader.style.opacity = '0';
+                    setTimeout(() => {
+                        preloader.style.display = 'none';
+                    }, 500);
+                }, 1000);
+            });
+
+            // Navigation Scroll Effect
+            const nav = document.querySelector('nav');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    nav.classList.add('scrolled');
+                } else {
+                    nav.classList.remove('scrolled');
+                }
+            });
+
+            // Mobile Menu Toggle
+            const hamburger = document.querySelector('.hamburger');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const closeMenu = document.querySelector('.close-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-menu a');
+
+            hamburger.addEventListener('click', () => {
+                mobileMenu.classList.add('active');
+            });
+
+            closeMenu.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('active');
+                });
+            });
+
+            // Scroll Reveal (Intersection Observer)
+            const revealElements = document.querySelectorAll('.reveal');
+            const revealOptions = {
+                threshold: 0.15,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                });
+            }, revealOptions);
+
+            revealElements.forEach(el => {
+                revealOnScroll.observe(el);
+            });
+
+            // Animated Stats Counter
+            const counters = document.querySelectorAll('.count');
+            const statsSection = document.querySelector('.stats-section');
+            let started = false;
+
+            const startCounters = new IntersectionObserver(function(entries) {
+                if (entries[0].isIntersecting && !started) {
+                    started = true;
+                    counters.forEach(counter => {
+                        const target = +counter.getAttribute('data-target');
+                        const duration = 2000; // 2 seconds
+                        const increment = target / (duration / 16); // 60fps
+                        let current = 0;
+
+                        const updateCounter = () => {
+                            current += increment;
+                            if (current < target) {
+                                counter.innerText = Math.ceil(current);
+                                requestAnimationFrame(updateCounter);
+                            } else {
+                                counter.innerText = target;
+                            }
+                        };
+                        updateCounter();
+                    });
+                }
+            }, { threshold: 0.5 });
+
+            if(statsSection) startCounters.observe(statsSection);
+
+            // FAQ Accordion
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+                    faqItems.forEach(i => i.classList.remove('active'));
+                    if (!isActive) {
+                        item.classList.add('active');
+                    }
+                });
+            });
+
+            // Live Open/Closed Badge Logic
+            const updateStatusBadge = () => {
+                const badge = document.getElementById('status-badge');
+                if(!badge) return;
+                
+                const now = new Date();
+                // Miami is EST (UTC-5 or UTC-4). For simplicity, using local time assuming user is in same timezone or it's a general indicator.
+                const day = now.getDay(); // 0 = Sunday, 1 = Monday...
+                const hour = now.getHours();
+                const minutes = now.getMinutes();
+                const time = hour + (minutes / 60);
+
+                let isOpen = false;
+
+                // Mon-Sat: 8:30 AM (8.5) - 7:00 PM (19.0)
+                if (day >= 1 && day <= 6) {
+                    if (time >= 8.5 && time < 19.0) isOpen = true;
+                }
+                // Sun: 10:00 AM (10.0) - 3:00 PM (15.0)
+                else if (day === 0) {
+                    if (time >= 10.0 && time < 15.0) isOpen = true;
+                }
+
+                if (isOpen) {
+                    badge.className = 'status-badge open';
+                    badge.innerHTML = '<span class="dot"></span> OPEN NOW';
+                } else {
+                    badge.className = 'status-badge closed';
+                    badge.innerHTML = '<span class="dot"></span> CLOSED';
+                }
+            };
+            updateStatusBadge();
+            setInterval(updateStatusBadge, 60000); // Check every minute
+
+            // Chat Widget Logic
+            const chatFab = document.getElementById('chat-fab');
+            const chatPanel = document.getElementById('chat-panel');
+            const chatClose = document.getElementById('chat-close');
+            const chatBody = document.getElementById('chat-body');
+            const chatInput = document.getElementById('chat-input');
+            const chatSend = document.getElementById('chat-send');
+            const quickReplies = document.querySelectorAll('.quick-reply-btn');
+
+            const toggleChat = () => {
+                const isOpen = chatPanel.classList.contains('open');
+                if (isOpen) {
+                    chatPanel.classList.remove('open');
+                    chatFab.innerHTML = '<i class="fas fa-comment-dots"></i>';
+                } else {
+                    chatPanel.classList.add('open');
+                    chatFab.innerHTML = '<i class="fas fa-times"></i>';
+                }
+            };
+
+            chatFab.addEventListener('click', toggleChat);
+            chatClose.addEventListener('click', toggleChat);
+
+            const addMessage = (text, type) => {
+                const msgDiv = document.createElement('div');
+                msgDiv.className = `chat-bubble chat-${type}`;
+                msgDiv.innerHTML = `${text}<div class="chat-time">Just now</div>`;
+                
+                // Insert before quick replies if they exist
+                const qrContainer = chatBody.querySelector('.quick-replies');
+                if (qrContainer) {
+                    chatBody.insertBefore(msgDiv, qrContainer);
+                } else {
+                    chatBody.appendChild(msgDiv);
+                }
+                chatBody.scrollTop = chatBody.scrollHeight;
+            };
+
+            const handleSend = () => {
+                const text = chatInput.value.trim();
+                if (!text) return;
+                addMessage(text, 'outgoing');
+                chatInput.value = '';
+                
+                setTimeout(() => {
+                    addMessage("Thanks for your message! Our team will get back to you shortly. For immediate assistance, please call (305) 255-4454.", 'incoming');
+                }, 1000);
+            };
+
+            chatSend.addEventListener('click', handleSend);
+            chatInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') handleSend();
+            });
+
+            quickReplies.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const replyType = e.target.getAttribute('data-reply');
+                    addMessage(replyType, 'outgoing');
+                    
+                    setTimeout(() => {
+                        let response = "";
+                        if (replyType === "Hours?") {
+                            response = "We are open Mon-Sat 8:30 AM - 7:00 PM, and Sunday 10:00 AM - 3:00 PM.";
+                        } else if (replyType === "Location?") {
+                            response = "We are located at 12368 Quail Roost Dr, Miami, FL 33177.";
+                        } else if (replyType === "Services?") {
+                            response = "We offer luxury manicures, pedicures, custom nail art, waxing, and eyelash extensions!";
+                        } else if (replyType === "WhatsApp Us") {
+                            response = `<a href="https://wa.me/3052554454" target="_blank" style="text-decoration: underline; color: #25D366;">💬 Chat with us on WhatsApp!</a>`;
+                        } else if (replyType === "Leave a Review") {
+                            response = `<a href="https://www.google.com/maps/search/Elisa%20by%20Ally%20Nail%20%26%20SPA%2012368%20Quail%20Roost%20Dr%2C%20Miami%2C%20FL%2033177%2C%20USA" target="_blank" style="text-decoration: underline; color: #3b82f6;">Click here to leave a Google Review!</a>`;
+                        }
+                        addMessage(response, 'incoming');
+                    }, 600);
+                });
+            });
+
+            // Promo Popup Logic
+            setTimeout(() => {
+                const modal = document.getElementById('promo-modal');
+                if(modal && !sessionStorage.getItem('promoShown')) {
+                    modal.style.display = 'flex';
+                    sessionStorage.setItem('promoShown', 'true');
+                }
+            }, 5000);
+
+            // Global Modal Close Logic (CRITICAL)
+            document.body.addEventListener('click', e => { 
+                if(e.target.closest('.close-modal, .modal-close, .close, [aria-label="Close"]') || e.target.classList.contains('modal-overlay')) { 
+                    const m = e.target.closest('.modal, .popup, #promo-modal, .fixed'); 
+                    if(m) m.style.display = 'none'; 
+                    else document.querySelectorAll('.modal-overlay, .popup, #promo-modal').forEach(p=>p.style.display='none'); 
+                } 
+            });
+
+        } catch(e) {
+            console.error("Script Error:", e);
+        }
+    </script>
+</body>
+</html>
